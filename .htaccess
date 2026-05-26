@@ -1,0 +1,6 @@
+RewriteEngine On
+Redirect 301 /ourservices /services/
+Redirect 301 /aboutus /about/
+Redirect 301 /contactus /contact/
+Redirect 301 /our-services /services/
+Redirect 301 /contact-us /contact/

@@ -1,0 +1,13 @@
+{
+  "name": "jt-accountancy-redesign",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build-site.mjs",
+    "dev": "php -S 127.0.0.1:8088"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^7.2.0"
+  }
+}
