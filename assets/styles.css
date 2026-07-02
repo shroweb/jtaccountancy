@@ -260,8 +260,8 @@ img {
 
 .hero {
   background:
-    linear-gradient(90deg, rgba(20, 39, 55, .94) 0%, rgba(20, 39, 55, .84) 48%, rgba(20, 39, 55, .42) 100%),
-    url("/assets/hull-jt-accountancy.jpg") center/cover;
+    linear-gradient(90deg, rgba(20, 39, 55, .95) 0%, rgba(20, 39, 55, .82) 46%, rgba(20, 39, 55, .38) 100%),
+    url("/assets/jt-bond-street-team.jpeg") center 42%/cover;
   color: white;
 }
 
@@ -872,7 +872,7 @@ h3 {
 }
 
 .portrait img {
-  object-position: center 18%;
+  object-position: center 24%;
 }
 
 .office-feature {
@@ -890,7 +890,7 @@ h3 {
 }
 
 .office-image img {
-  object-position: center 54%;
+  object-position: center 32%;
 }
 
 .office-copy {

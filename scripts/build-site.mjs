@@ -3,7 +3,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
-const siteUrl = "https://www.jtaccountancy.co.uk";
+const siteUrl = "https://jtaccountancy.co.uk";
 const phone = "01482 957317";
 const email = "jordan@jtaccountancy.co.uk";
 const address = "66 Bond Street, Hull, HU1 3EN";
@@ -30,7 +30,7 @@ const services = [
     title: "Limited Company Accounts",
     summary: "Year-end accounts, Companies House filing, Corporation Tax returns and clear director guidance for small limited companies.",
     keywords: "limited company accounts Hull, company accountant Hull",
-    image: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=900&q=80",
+    image: "/assets/jt-office-director.jpeg",
     includes: ["Statutory accounts", "Corporation Tax return", "Director salary and dividend planning", "Companies House filing reminders", "Plain-English tax review"],
     audience: "Owner-managed companies, contractors, consultants and growing local businesses that want accounts handled accurately without losing sight of cash flow."
   },
@@ -39,7 +39,7 @@ const services = [
     title: "Sole Trader Accounts",
     summary: "Straightforward annual accounts and self assessment support for sole traders, freelancers and self-employed people.",
     keywords: "sole trader accountant Hull, self employed accountant Hull",
-    image: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=900&q=80",
+    image: "/assets/jt-desk-work.jpeg",
     includes: ["Income and expense review", "Self assessment preparation", "Allowable expense guidance", "Payment on account planning", "Simple record keeping advice"],
     audience: "Self-employed people who need their figures organised, deadlines covered and tax explained clearly."
   },
@@ -48,7 +48,7 @@ const services = [
     title: "Management Accounts",
     summary: "Regular reporting that shows how the business is performing before the year end arrives.",
     keywords: "management accounts Hull, business accountant Hull",
-    image: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=900&q=80",
+    image: "/assets/jt-team-advice.jpeg",
     includes: ["Monthly or quarterly profit reports", "Cash-flow commentary", "VAT and payroll checks", "Director-level review", "Action points for the next period"],
     audience: "Business owners who want reliable numbers for decisions, funding conversations or steady growth."
   },
@@ -57,7 +57,7 @@ const services = [
     title: "Bookkeeping",
     summary: "Accurate bookkeeping support that keeps your records tidy, current and ready for tax, VAT and management reporting.",
     keywords: "bookkeeper Hull, bookkeeping services Hull",
-    image: "https://images.unsplash.com/photo-1554224154-26032ffc0d07?auto=format&fit=crop&w=900&q=80",
+    image: "/assets/jt-office-admin.jpeg",
     includes: ["Sales and purchase records", "Bank reconciliation", "Cloud software support", "Receipt and expense organisation", "Regular tidy-up reviews"],
     audience: "Businesses that want clean records without spending evenings catching up on admin."
   },
@@ -66,7 +66,7 @@ const services = [
     title: "VAT Returns",
     summary: "VAT return preparation and submission, with checks for common issues before the return goes to HMRC.",
     keywords: "VAT returns Hull, VAT accountant Hull",
-    image: "https://images.unsplash.com/photo-1554224155-1696413565d3?auto=format&fit=crop&w=900&q=80",
+    image: "/assets/jt-planning-meeting.jpeg",
     includes: ["VAT return preparation", "Making Tax Digital support", "Input and output VAT checks", "Flat rate and standard scheme review", "HMRC submission reminders"],
     audience: "VAT-registered businesses that want accurate returns and fewer surprises."
   },
@@ -75,7 +75,7 @@ const services = [
     title: "Payroll",
     summary: "Payroll processing for small employers, covering payslips, RTI submissions, starters, leavers and pension duties.",
     keywords: "payroll services Hull, small business payroll Hull",
-    image: "https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?auto=format&fit=crop&w=900&q=80",
+    image: "/assets/jt-phone-call.jpeg",
     includes: ["Weekly or monthly payroll", "Payslips and payroll reports", "RTI submissions", "Starter and leaver processing", "Workplace pension coordination"],
     audience: "Small employers that need payroll handled reliably and on time."
   },
@@ -84,7 +84,7 @@ const services = [
     title: "Personal Tax Returns",
     summary: "Self assessment returns for directors, landlords, sole traders and individuals with additional income.",
     keywords: "personal tax return Hull, self assessment Hull",
-    image: "https://images.unsplash.com/photo-1554224154-22dec7ec8818?auto=format&fit=crop&w=900&q=80",
+    image: "/assets/jt-jordan-desk.jpeg",
     includes: ["Income source review", "Tax return preparation", "Relief and allowance checks", "HMRC submission", "Tax payment planning"],
     audience: "Individuals who want their return done properly and submitted before the deadline pressure begins."
   },
@@ -93,7 +93,7 @@ const services = [
     title: "Company Tax Returns",
     summary: "Corporation Tax return preparation alongside your company accounts, with clear explanations of what is due and when.",
     keywords: "company tax return Hull, corporation tax accountant Hull",
-    image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=900&q=80",
+    image: "/assets/jt-office-director.jpeg",
     includes: ["Corporation Tax computation", "CT600 submission", "Capital allowance review", "Director tax considerations", "Payment deadline reminders"],
     audience: "Limited companies that need compliant filing and practical tax planning."
   },
@@ -102,7 +102,7 @@ const services = [
     title: "Partnership Accounts",
     summary: "Accounts and partnership tax return support for trading partnerships and family-run businesses.",
     keywords: "partnership accounts Hull, partnership tax return Hull",
-    image: "https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=900&q=80",
+    image: "/assets/jt-team-advice.jpeg",
     includes: ["Partnership accounts", "Profit share calculations", "Partnership tax return", "Partner self assessment links", "Record keeping guidance"],
     audience: "Partnerships that need clean accounts and joined-up tax return handling for each partner."
   },
@@ -111,7 +111,7 @@ const services = [
     title: "Company Formations",
     summary: "Company setup support, including basic structure guidance and the first accounting deadlines to keep on the radar.",
     keywords: "company formation Hull, start a limited company Hull",
-    image: "https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&w=900&q=80",
+    image: "/assets/jt-bond-street-team.jpeg",
     includes: ["Company setup guidance", "Companies House registration support", "Director and shareholder basics", "First tax deadline checklist", "Bookkeeping setup advice"],
     audience: "New businesses deciding whether a limited company is the right structure."
   },
@@ -120,7 +120,7 @@ const services = [
     title: "CIS Returns",
     summary: "Construction Industry Scheme return support for contractors and subcontractors.",
     keywords: "CIS returns Hull, construction accountant Hull",
-    image: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=900&q=80",
+    image: "/assets/jt-desk-work.jpeg",
     includes: ["Monthly CIS return preparation", "Subcontractor verification guidance", "Deduction statements", "CIS record checks", "Tax return coordination"],
     audience: "Construction businesses that need CIS handled accurately month by month."
   },
@@ -129,7 +129,7 @@ const services = [
     title: "Tax Planning",
     summary: "Personal and business tax planning before key deadlines, so decisions are made while there is still time to act.",
     keywords: "tax planning Hull, personal tax planning Hull",
-    image: "https://images.unsplash.com/photo-1554224155-3a58922a22c3?auto=format&fit=crop&w=900&q=80",
+    image: "/assets/jt-planning-meeting.jpeg",
     includes: ["Pre-year-end tax review", "Director remuneration planning", "Personal tax allowance review", "Dividend and pension considerations", "Practical next steps"],
     audience: "Business owners and individuals who want proactive guidance rather than last-minute filing."
   }
@@ -381,7 +381,7 @@ const url = (pathName) => `${siteUrl}${pathName}`;
 const starIcons = `<i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i>`;
 const inlineLinks = (items) => items.map(([label, href]) => `<a href="${href}">${esc(label)}</a>`).join(", ");
 const initials = (name) => name.split(/\s+/).filter(Boolean).slice(0, 2).map((part) => part[0]).join("").toUpperCase();
-const serviceImageAlt = (service) => `Accounting paperwork and business records for ${service.title.toLowerCase()} clients`;
+const serviceImageAlt = (service) => `JT Accountancy team supporting ${service.title.toLowerCase()} clients in Hull`;
 const absoluteImage = (src) => src.startsWith("http") ? src : `${siteUrl}${src}`;
 
 function breadcrumbSchema(items) {
@@ -870,7 +870,7 @@ const home = layout({
         <p>Over the last few years, Jordan has grown the practice to a team of 8 talented, hard working professionals. Clients deal directly with Jordan and the team for accurate work, clear replies and no last-minute rush around deadlines.</p>
         <div class="section-actions"><a class="button" href="/about/"><i class="fa-solid fa-user-tie" aria-hidden="true"></i> Meet JT Accountancy</a></div>
       </div>
-      <div class="portrait"><img src="/assets/jordan.jpg" alt="Jordan Taylor from JT Accountancy meeting with a client"></div>
+      <div class="portrait"><img src="/assets/jt-jordan-desk.jpeg" alt="Jordan Taylor working at the JT Accountancy office in Hull"></div>
     </div>
   </section>
   <section class="section navy reviews-section">
@@ -945,7 +945,7 @@ const about = layout({
           <li>Individuals with rental income, side income or other <a href="/services/personal-tax-returns/">self assessment</a> needs.</li>
         </ul>
       </div>
-      <div class="portrait"><img src="/assets/jordan.jpg" alt="Jordan Taylor, Director at JT Accountancy"></div>
+      <div class="portrait"><img src="/assets/jt-office-director.jpeg" alt="Jordan Taylor at the JT Accountancy office in Hull"></div>
     </div>
   </section>
   <section class="section alt">
@@ -959,7 +959,7 @@ const about = layout({
       </div>
       <div class="office-feature">
         <div class="office-image">
-          <img src="/assets/jt3.jpg" alt="JT Accountancy office on Bond Street in Hull">
+          <img src="/assets/jt-bond-street-team.jpeg" alt="JT Accountancy team outside the Bond Street office in Hull">
         </div>
         <div class="office-copy">
           <p class="eyebrow">Visit or work remotely</p>
@@ -1059,7 +1059,7 @@ const contact = layout({
   <section class="section alt contact-main-section">
     <div class="section-inner contact-grid">
       <div class="card">
-        <div class="contact-photo"><img src="/assets/jt.jpg" alt="Calling JT Accountancy"></div>
+        <div class="contact-photo"><img src="/assets/jt-phone-call.jpeg" alt="JT Accountancy team member speaking with a client by phone"></div>
         <p class="eyebrow">Send a message</p>
         <h2>Tell us what you need help with.</h2>
         <p>Share what you need help with, whether it is a tax return, limited company accounts, payroll, VAT, bookkeeping or a new business setup.</p>
@@ -1330,6 +1330,9 @@ Sitemap: ${siteUrl}/sitemap.xml
 `);
 
 await writeFile(path.join(root, ".htaccess"), `RewriteEngine On
+RewriteCond %{HTTP_HOST} ^www\\.jtaccountancy\\.co\\.uk$ [NC]
+RewriteRule ^(.*)$ https://jtaccountancy.co.uk/$1 [R=301,L]
+
 Redirect 301 /ourservices /services/
 Redirect 301 /aboutus /about/
 Redirect 301 /contactus /contact/
