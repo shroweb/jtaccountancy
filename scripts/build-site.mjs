@@ -383,10 +383,16 @@ const inlineLinks = (items) => items.map(([label, href]) => `<a href="${href}">$
 const initials = (name) => name.split(/\s+/).filter(Boolean).slice(0, 2).map((part) => part[0]).join("").toUpperCase();
 const serviceImageAlt = (service) => `JT Accountancy team supporting ${service.title.toLowerCase()} clients in Hull`;
 const absoluteImage = (src) => src.startsWith("http") ? src : `${siteUrl}${src}`;
+const siteImage = `${siteUrl}/assets/jt-bond-street-team.jpeg`;
+
+function metaDescription(text) {
+  const clean = String(text).replace(/\s+/g, " ").trim();
+  if (clean.length <= 155) return clean;
+  return `${clean.slice(0, 152).replace(/\s+\S*$/, "")}...`;
+}
 
 function breadcrumbSchema(items) {
   return {
-    "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
       {
@@ -407,7 +413,6 @@ function breadcrumbSchema(items) {
 
 function faqSchema(faqs) {
   return {
-    "@context": "https://schema.org",
     "@type": "FAQPage",
     mainEntity: faqs.map(([question, answer]) => ({
       "@type": "Question",
@@ -422,8 +427,8 @@ function faqSchema(faqs) {
 
 function localBusinessSchema(location) {
   return {
-    "@context": "https://schema.org",
-    "@type": "AccountingService",
+    "@type": ["LocalBusiness", "AccountingService"],
+    "@id": `${siteUrl}/locations/${location.slug}/#business`,
     name: `JT Accountancy - ${location.place}`,
     url: url(`/locations/${location.slug}/`),
     telephone: phone,
@@ -442,7 +447,7 @@ function localBusinessSchema(location) {
       name: location.place
     },
     parentOrganization: {
-      "@type": "AccountingService",
+      "@type": ["LocalBusiness", "AccountingService"],
       name: "JT Accountancy",
       url: siteUrl
     },
@@ -452,14 +457,19 @@ function localBusinessSchema(location) {
 
 function layout({ title, description, pathName, body, schema = [] }) {
   const current = pathName.split("/")[1];
-  const schemas = [
+  const pageDescription = metaDescription(description);
+  const schemas = {
+    "@context": "https://schema.org",
+    "@graph": [
     {
-      "@context": "https://schema.org",
-      "@type": "AccountingService",
+      "@type": ["LocalBusiness", "AccountingService"],
+      "@id": `${siteUrl}/#business`,
       name: "JT Accountancy",
       url: siteUrl,
       telephone: phone,
       email,
+      image: `${siteUrl}/assets/logo.webp`,
+      logo: `${siteUrl}/assets/logo.webp`,
       address: {
         "@type": "PostalAddress",
         streetAddress: "66 Bond Street",
@@ -472,8 +482,16 @@ function layout({ title, description, pathName, body, schema = [] }) {
       priceRange: "GBP",
       openingHoursSpecification
     },
+    {
+      "@type": "WebSite",
+      "@id": `${siteUrl}/#website`,
+      name: "JT Accountancy",
+      url: siteUrl,
+      publisher: { "@id": `${siteUrl}/#business` }
+    },
     ...schema
-  ];
+    ]
+  };
 
   return `<!doctype html>
 <html lang="en-GB">
@@ -481,19 +499,22 @@ function layout({ title, description, pathName, body, schema = [] }) {
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>${esc(title)}</title>
-  <meta name="description" content="${esc(description)}">
+  <meta name="description" content="${esc(pageDescription)}">
   <meta name="robots" content="index,follow">
   <link rel="canonical" href="${url(pathName)}">
   <link rel="icon" type="image/png" href="/favicon.png">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <meta name="theme-color" content="#214760">
   <meta property="og:title" content="${esc(title)}">
-  <meta property="og:description" content="${esc(description)}">
+  <meta property="og:description" content="${esc(pageDescription)}">
   <meta property="og:type" content="website">
   <meta property="og:url" content="${url(pathName)}">
-  <meta property="og:image" content="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=1200&q=80">
-  <link rel="preconnect" href="https://images.unsplash.com">
-  <link rel="stylesheet" href="/assets/fontawesome/css/all.min.css">
+  <meta property="og:image" content="${siteImage}">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="${esc(title)}">
+  <meta name="twitter:description" content="${esc(pageDescription)}">
+  <meta name="twitter:image" content="${siteImage}">
+  <link rel="stylesheet" href="/assets/icons.css">
   <link rel="stylesheet" href="/assets/styles.css">
   <script type="application/ld+json">${JSON.stringify(schemas)}</script>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-SFBVHJBN28"></script>
@@ -530,7 +551,7 @@ function layout({ title, description, pathName, body, schema = [] }) {
         </div>
         <div>
           <h3>Services</h3>
-          ${services.slice(0, 5).map((service) => `<a href="/services/${service.slug}/">${service.title}</a>`).join("")}
+          ${services.map((service) => `<a href="/services/${service.slug}/">${service.title}</a>`).join("")}
         </div>
         <div>
           <h3>Service areas</h3>
@@ -819,7 +840,7 @@ function localServiceLinks(place) {
 
 const home = layout({
   title: "JT Accountancy | Accountant in Hull for Small Businesses",
-  description: "JT Accountancy provides accounts, bookkeeping, payroll, VAT and tax return services for small businesses, sole traders and individuals in Hull and East Yorkshire.",
+  description: "JT Accountancy in Hull provides accounts, bookkeeping, payroll, VAT and tax return support for small businesses, sole traders and individuals.",
   pathName: "/",
   body: `<section class="hero">
     <div class="hero-inner">
@@ -916,7 +937,7 @@ const home = layout({
 
 const about = layout({
   title: "About JT Accountancy | Jordan Taylor, Accountant in Hull",
-  description: "Learn about JT Accountancy, run by Jordan Taylor in Hull, supporting small businesses and individuals with accounts and tax.",
+  description: "Learn about JT Accountancy in Hull, run by Jordan Taylor and supporting small businesses, sole traders and personal tax clients.",
   pathName: "/about/",
   body: `${pageHero({
     eyebrow: "About",
@@ -980,7 +1001,7 @@ const about = layout({
 
 const servicesIndex = layout({
   title: "Accountancy Services in Hull | JT Accountancy",
-  description: "Explore JT Accountancy services including limited company accounts, sole trader accounts, bookkeeping, VAT returns, payroll and tax planning.",
+  description: "Explore JT Accountancy services in Hull including company accounts, sole trader accounts, bookkeeping, VAT, payroll and tax planning.",
   pathName: "/services/",
   body: `${pageHero({
     eyebrow: "Services",
@@ -1010,7 +1031,7 @@ const servicesIndex = layout({
 
 const locationsIndex = layout({
   title: "Accountants in Hull and East Yorkshire | JT Accountancy",
-  description: "JT Accountancy supports clients in Hull, Kirk Ella, Beverley, Cottingham and across East Yorkshire with accounting and tax services.",
+  description: "JT Accountancy supports clients in Hull, Kirk Ella, Beverley, Cottingham, Hessle and East Yorkshire with accounting and tax services.",
   pathName: "/locations/",
   body: `${pageHero({
     eyebrow: "Locations",
@@ -1028,7 +1049,7 @@ const locationsIndex = layout({
 
 const blogIndex = layout({
   title: "Accountancy Blog | JT Accountancy Hull",
-  description: "Practical accountancy, tax and bookkeeping articles from JT Accountancy in Hull.",
+  description: "Read practical accountancy, tax, payroll and bookkeeping articles from JT Accountancy for small businesses and individuals in Hull.",
   pathName: "/blog/",
   body: `${pageHero({
     eyebrow: "Blog",
@@ -1053,7 +1074,7 @@ const blogIndex = layout({
 
 const contact = layout({
   title: "Contact JT Accountancy | Accountant in Hull",
-  description: "Contact JT Accountancy in Hull for a free initial consultation about accounts, tax returns, VAT, payroll or bookkeeping.",
+  description: "Contact JT Accountancy in Hull to discuss accounts, tax returns, VAT, payroll, bookkeeping or practical support for your business.",
   pathName: "/contact/",
   body: `${contactHero()}
   <section class="section alt contact-main-section">
@@ -1112,14 +1133,14 @@ function servicePage(service) {
   const faq = serviceFaqs(service);
   return layout({
     title: `${service.title} in Hull | JT Accountancy`,
-    description: `${service.title} in Hull from JT Accountancy. ${service.summary} Speak to Jordan Taylor about practical accounts and tax support.`,
+    description: `${service.title} in Hull from JT Accountancy, with clear support from Jordan Taylor for small businesses and individuals.`,
     pathName: `/services/${service.slug}/`,
     schema: [
       {
-        "@context": "https://schema.org",
         "@type": "Service",
+        "@id": `${siteUrl}/services/${service.slug}/#service`,
         name: service.title,
-        provider: { "@type": "AccountingService", name: "JT Accountancy", url: siteUrl },
+        provider: { "@id": `${siteUrl}/#business` },
         areaServed: ["Hull", "East Yorkshire"],
         description: service.summary,
         url: url(`/services/${service.slug}/`)
@@ -1188,16 +1209,26 @@ function servicePage(service) {
 function blogPage(post) {
   return layout({
     title: `${post.title} | JT Accountancy`,
-    description: post.summary,
+    description: `${post.summary} Read practical tax and accountancy guidance from JT Accountancy in Hull.`,
     pathName: `/blog/${post.slug}/`,
     schema: [{
-      "@context": "https://schema.org",
       "@type": "BlogPosting",
+      "@id": `${siteUrl}/blog/${post.slug}/#article`,
       headline: post.title,
       description: post.summary,
       datePublished: post.date,
-      author: { "@type": "Organization", name: "JT Accountancy" },
-      publisher: { "@type": "Organization", name: "JT Accountancy" },
+      dateModified: post.date,
+      mainEntityOfPage: url(`/blog/${post.slug}/`),
+      author: { "@id": `${siteUrl}/#business` },
+      publisher: {
+        "@type": "Organization",
+        "@id": `${siteUrl}/#publisher`,
+        name: "JT Accountancy",
+        logo: {
+          "@type": "ImageObject",
+          url: `${siteUrl}/assets/logo.webp`
+        }
+      },
       image: absoluteImage(post.image)
     }, breadcrumbSchema([{ label: "Blog", href: "/blog/" }, { label: post.title, href: `/blog/${post.slug}/` }])],
     body: `${pageHero({
@@ -1246,7 +1277,7 @@ function locationPage(location) {
   const seoTitle = `Accountants in ${location.place}`;
   return layout({
     title: `${seoTitle} | JT Accountancy`,
-    description: `${seoTitle} for small businesses, sole traders and personal tax clients. ${location.summary}`,
+    description: `${seoTitle} from JT Accountancy, supporting local businesses, sole traders and personal tax clients from the Hull office.`,
     pathName: `/locations/${location.slug}/`,
     schema: [
       localBusinessSchema(location),

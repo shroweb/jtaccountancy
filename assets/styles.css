@@ -261,7 +261,7 @@ img {
 .hero {
   background:
     linear-gradient(90deg, rgba(20, 39, 55, .95) 0%, rgba(20, 39, 55, .82) 46%, rgba(20, 39, 55, .38) 100%),
-    url("/assets/jt-bond-street-team.jpeg") center 36%/cover;
+    url("/assets/jt-bond-street-team.jpeg") center 45%/cover;
   color: white;
 }
 
@@ -656,31 +656,52 @@ h3 {
   transform: scale(1.035);
 }
 
-.service-card-limited-company-accounts .card-media img,
-.service-card-company-tax-returns .card-media img,
-.service-card-payroll .card-media img {
-  object-position: center 28%;
+.service-card-limited-company-accounts .card-media img {
+  object-position: center 35%;
 }
 
 .service-card-sole-trader-accounts .card-media img {
-  object-position: center 34%;
+  object-position: center 60%;
 }
 
-.service-card-management-accounts .card-media img,
-.service-card-company-formations .card-media img {
-  object-position: center 24%;
+.service-card-management-accounts .card-media img {
+  object-position: center 45%;
 }
 
 .service-card-bookkeeping .card-media img {
-  object-position: center 48%;
+  object-position: center 60%;
 }
 
-.service-card-vat-returns .card-media img,
-.service-card-personal-tax-returns .card-media img,
-.service-card-partnership-accounts .card-media img,
-.service-card-cis-returns .card-media img,
+.service-card-vat-returns .card-media img {
+  object-position: center 35%;
+}
+
+.service-card-payroll .card-media img {
+  object-position: center 35%;
+}
+
+.service-card-personal-tax-returns .card-media img {
+  object-position: center 45%;
+}
+
+.service-card-company-tax-returns .card-media img {
+  object-position: center 65%;
+}
+
+.service-card-partnership-accounts .card-media img {
+  object-position: center 40%;
+}
+
+.service-card-company-formations .card-media img {
+  object-position: center 50%;
+}
+
+.service-card-cis-returns .card-media img {
+  object-position: center 40%;
+}
+
 .service-card-tax-planning .card-media img {
-  object-position: center 38%;
+  object-position: center 35%;
 }
 
 .service-card {
