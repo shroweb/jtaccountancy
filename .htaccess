@@ -1,4 +1,7 @@
 RewriteEngine On
+RewriteCond %{HTTP_HOST} ^www\.jtaccountancy\.co\.uk$ [NC]
+RewriteRule ^(.*)$ https://jtaccountancy.co.uk/$1 [R=301,L]
+
 Redirect 301 /ourservices /services/
 Redirect 301 /aboutus /about/
 Redirect 301 /contactus /contact/
