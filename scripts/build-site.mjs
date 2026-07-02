@@ -30,7 +30,7 @@ const services = [
     title: "Limited Company Accounts",
     summary: "Year-end accounts, Companies House filing, Corporation Tax returns and clear director guidance for small limited companies.",
     keywords: "limited company accounts Hull, company accountant Hull",
-    image: "/assets/jt-office-director.jpeg",
+    image: "/assets/jt-branded-office.jpeg",
     includes: ["Statutory accounts", "Corporation Tax return", "Director salary and dividend planning", "Companies House filing reminders", "Plain-English tax review"],
     audience: "Owner-managed companies, contractors, consultants and growing local businesses that want accounts handled accurately without losing sight of cash flow."
   },
@@ -39,7 +39,7 @@ const services = [
     title: "Sole Trader Accounts",
     summary: "Straightforward annual accounts and self assessment support for sole traders, freelancers and self-employed people.",
     keywords: "sole trader accountant Hull, self employed accountant Hull",
-    image: "/assets/jt-desk-work.jpeg",
+    image: "/assets/jt-phone-call.jpeg",
     includes: ["Income and expense review", "Self assessment preparation", "Allowable expense guidance", "Payment on account planning", "Simple record keeping advice"],
     audience: "Self-employed people who need their figures organised, deadlines covered and tax explained clearly."
   },
@@ -48,7 +48,7 @@ const services = [
     title: "Management Accounts",
     summary: "Regular reporting that shows how the business is performing before the year end arrives.",
     keywords: "management accounts Hull, business accountant Hull",
-    image: "/assets/jt-team-advice.jpeg",
+    image: "/assets/jt-bond-street-team.jpeg",
     includes: ["Monthly or quarterly profit reports", "Cash-flow commentary", "VAT and payroll checks", "Director-level review", "Action points for the next period"],
     audience: "Business owners who want reliable numbers for decisions, funding conversations or steady growth."
   },
@@ -57,7 +57,7 @@ const services = [
     title: "Bookkeeping",
     summary: "Accurate bookkeeping support that keeps your records tidy, current and ready for tax, VAT and management reporting.",
     keywords: "bookkeeper Hull, bookkeeping services Hull",
-    image: "/assets/jt-office-admin.jpeg",
+    image: "/assets/jt-desk-work.jpeg",
     includes: ["Sales and purchase records", "Bank reconciliation", "Cloud software support", "Receipt and expense organisation", "Regular tidy-up reviews"],
     audience: "Businesses that want clean records without spending evenings catching up on admin."
   },
@@ -66,7 +66,7 @@ const services = [
     title: "VAT Returns",
     summary: "VAT return preparation and submission, with checks for common issues before the return goes to HMRC.",
     keywords: "VAT returns Hull, VAT accountant Hull",
-    image: "/assets/jt-planning-meeting.jpeg",
+    image: "/assets/jt-accounts-work.jpeg",
     includes: ["VAT return preparation", "Making Tax Digital support", "Input and output VAT checks", "Flat rate and standard scheme review", "HMRC submission reminders"],
     audience: "VAT-registered businesses that want accurate returns and fewer surprises."
   },
@@ -75,7 +75,7 @@ const services = [
     title: "Payroll",
     summary: "Payroll processing for small employers, covering payslips, RTI submissions, starters, leavers and pension duties.",
     keywords: "payroll services Hull, small business payroll Hull",
-    image: "/assets/jt-phone-call.jpeg",
+    image: "/assets/jt-office-admin.jpeg",
     includes: ["Weekly or monthly payroll", "Payslips and payroll reports", "RTI submissions", "Starter and leaver processing", "Workplace pension coordination"],
     audience: "Small employers that need payroll handled reliably and on time."
   },
@@ -84,7 +84,7 @@ const services = [
     title: "Personal Tax Returns",
     summary: "Self assessment returns for directors, landlords, sole traders and individuals with additional income.",
     keywords: "personal tax return Hull, self assessment Hull",
-    image: "/assets/jt-jordan-desk.jpeg",
+    image: "/assets/jt-client-support.jpeg",
     includes: ["Income source review", "Tax return preparation", "Relief and allowance checks", "HMRC submission", "Tax payment planning"],
     audience: "Individuals who want their return done properly and submitted before the deadline pressure begins."
   },
@@ -102,7 +102,7 @@ const services = [
     title: "Partnership Accounts",
     summary: "Accounts and partnership tax return support for trading partnerships and family-run businesses.",
     keywords: "partnership accounts Hull, partnership tax return Hull",
-    image: "/assets/jt-team-advice.jpeg",
+    image: "/assets/jt-planning-meeting.jpeg",
     includes: ["Partnership accounts", "Profit share calculations", "Partnership tax return", "Partner self assessment links", "Record keeping guidance"],
     audience: "Partnerships that need clean accounts and joined-up tax return handling for each partner."
   },
@@ -120,7 +120,7 @@ const services = [
     title: "CIS Returns",
     summary: "Construction Industry Scheme return support for contractors and subcontractors.",
     keywords: "CIS returns Hull, construction accountant Hull",
-    image: "/assets/jt-desk-work.jpeg",
+    image: "/assets/jt-company-tax.jpeg",
     includes: ["Monthly CIS return preparation", "Subcontractor verification guidance", "Deduction statements", "CIS record checks", "Tax return coordination"],
     audience: "Construction businesses that need CIS handled accurately month by month."
   },
@@ -129,7 +129,7 @@ const services = [
     title: "Tax Planning",
     summary: "Personal and business tax planning before key deadlines, so decisions are made while there is still time to act.",
     keywords: "tax planning Hull, personal tax planning Hull",
-    image: "/assets/jt-planning-meeting.jpeg",
+    image: "/assets/jt-tax-planning.jpeg",
     includes: ["Pre-year-end tax review", "Director remuneration planning", "Personal tax allowance review", "Dividend and pension considerations", "Practical next steps"],
     audience: "Business owners and individuals who want proactive guidance rather than last-minute filing."
   }
@@ -557,7 +557,7 @@ function layout({ title, description, pathName, body, schema = [] }) {
 
 function serviceCards(items = services) {
   return `<div class="grid cards-3">${items.map((service) => `
-    <article class="card service-card">
+    <article class="card service-card service-card-${esc(service.slug)}">
       <div class="card-media"><img src="${esc(service.image)}" alt="${esc(serviceImageAlt(service))}"></div>
       <h3>${esc(service.title)}</h3>
       <p>${esc(service.summary)}</p>

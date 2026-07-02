@@ -261,7 +261,7 @@ img {
 .hero {
   background:
     linear-gradient(90deg, rgba(20, 39, 55, .95) 0%, rgba(20, 39, 55, .82) 46%, rgba(20, 39, 55, .38) 100%),
-    url("/assets/jt-bond-street-team.jpeg") center 42%/cover;
+    url("/assets/jt-bond-street-team.jpeg") center 36%/cover;
   color: white;
 }
 
@@ -654,6 +654,33 @@ h3 {
 
 .card:hover .card-media img {
   transform: scale(1.035);
+}
+
+.service-card-limited-company-accounts .card-media img,
+.service-card-company-tax-returns .card-media img,
+.service-card-payroll .card-media img {
+  object-position: center 28%;
+}
+
+.service-card-sole-trader-accounts .card-media img {
+  object-position: center 34%;
+}
+
+.service-card-management-accounts .card-media img,
+.service-card-company-formations .card-media img {
+  object-position: center 24%;
+}
+
+.service-card-bookkeeping .card-media img {
+  object-position: center 48%;
+}
+
+.service-card-vat-returns .card-media img,
+.service-card-personal-tax-returns .card-media img,
+.service-card-partnership-accounts .card-media img,
+.service-card-cis-returns .card-media img,
+.service-card-tax-planning .card-media img {
+  object-position: center 38%;
 }
 
 .service-card {
